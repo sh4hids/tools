@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 
 type Inputs = {
   colorsText: string;
@@ -12,35 +14,37 @@ export default function ColorsForm() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     if (data.colorsText?.length > 0) {
       const givenColors = data.colorsText.match(hexColorRegex) ?? [];
       setColors(givenColors);
-      console.log(givenColors);
     }
   };
 
   return (
-    <div>
-      <div>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          {/* register your input into the hook by invoking the "register" function */}
-
-          {/* include validation with required or other standard HTML validation rules */}
-          <textarea {...register("colorsText", { required: true })} />
-          {/* errors will return when field validation fails  */}
+    <div className="max-w-3xl mx-auto">
+      <div className="p-4">
+        <form
+          className="w-full flex gap-4 flex-col"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <Textarea
+            rows={4}
+            {...register("colorsText", { required: true })}
+            placeholder="Type your color hex codes here..."
+            className="min-h-[10rem] max-h-[16rem]"
+          />
           {errors.colorsText && <span>This field is required</span>}
 
-          <input type="submit" />
+          <Button type="submit">Submit</Button>
         </form>
       </div>
-      <div className="flex">
+      <div className="grid grid-cols-10 p-4">
         {colors.map((color) => (
           <div
-            className="w-20 h-20 flex justify-center items-center"
+            className="w-20 h-20 flex justify-center items-center border"
             style={{
               backgroundColor: color,
             }}
