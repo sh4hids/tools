@@ -1,13 +1,21 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { BanglaDate } from '@/components/BanglaDate';
 ---
 
 <Layout>
-  <div class="grid grid-cols-3 gap-4 p-4 mx-auto max-w-3xl">
-<a class="block py-4 text-center bg-background text-foreground border rounded" href="/colors">Colors</a>
+  <div class="grid grid-cols-3 gap-4 py-4 mx-auto max-w-3xl min-h-[80vh]">
+    <div>
+<a class="py-4 inline-block w-full text-center bg-background text-foreground border rounded" href="/colors">Colors</a>
+    </div>
   </div>
+
+  <footer class="border-t mt-4">
+    <div class="max-w-3xl text-center mx-auto p-4">
+
+    <a href="https://www.npmjs.com/package/bangla-calendar" target="_blank">
+  <BanglaDate />
+    </a>
+    </div>
+  </footer>
 </Layout>
