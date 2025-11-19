@@ -1,14 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 
-import HeaderLink from '@/components/HeaderLink.astro';
 import ModeToggle from '@/components/ModeToggle';
 import { BanglaDate } from '@/components/BanglaDate';
-import { isActivePath } from '@/lib/utils';
 
 import logo from '../assets/images/logo-base.svg';
-
-const currentPath = Astro.url.pathname;
 ---
 
 <header
