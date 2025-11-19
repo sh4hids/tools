@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ColorsForm from "../components/ColorsForm"
+import ColorsForm from '../components/ColorsForm';
 ---
 
-<Layout title='Colors'>
-<ColorsForm client:load />
+<Layout meta={{ title: 'Colors' }}>
+  <ColorsForm client:load />
 </Layout>
