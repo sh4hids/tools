@@ -1,12 +1,12 @@
-import { useState } from "react"
-import {
-  getDate,
-} from 'bangla-calendar';
+import { useState } from 'react';
+import { getDate } from 'bangla-calendar';
 
 export function BanglaDate() {
-  const [date, setDate] = useState(new Date())
+  const [date, _setDate] = useState(new Date());
 
-  return <span>
-    {getDate(date, { format: 'D MMMM, YYYYb', calculationMethod: 'BD' })}
-  </span>
+  return (
+    <span>
+      {getDate(date, { format: 'D MMMM, YYYYb', calculationMethod: 'BD' })}
+    </span>
+  );
 }

@@ -3,22 +3,19 @@ import Layout from '../layouts/Layout.astro';
 import { BanglaDate } from '@/components/BanglaDate';
 ---
 
-<Layout>
-  <div class="grid grid-cols-3 gap-4 py-4 mx-auto max-w-3xl min-h-[80vh]">
+<Layout meta={{ title: 'Home' }}>
+  <div class="mx-auto grid max-w-3xl grid-cols-3 gap-4 py-4">
     <div>
-<a class="py-4 inline-block w-full text-center bg-background text-foreground border rounded" href="/colors">Colors</a>
+      <a
+        class="bg-background text-foreground inline-block w-full rounded border py-4 text-center"
+        href="/colors">Colors</a
+      >
     </div>
     <div>
-<a class="py-4 inline-block w-full text-center bg-background text-foreground border rounded" href="/ebill">Ebill</a>
+      <a
+        class="bg-background text-foreground inline-block w-full rounded border py-4 text-center"
+        href="/ebill">Ebill</a
+      >
     </div>
   </div>
-
-  <footer class="border-t mt-4">
-    <div class="max-w-3xl text-center mx-auto p-4">
-
-    <a href="https://www.npmjs.com/package/bangla-calendar" target="_blank">
-  <BanglaDate client:load />
-    </a>
-    </div>
-  </footer>
 </Layout>
