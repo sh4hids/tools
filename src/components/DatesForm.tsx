@@ -26,8 +26,8 @@ export default function DatesForm() {
   };
 
   return (
-    <div className="mx-auto max-w-3xl">
-      <div className="p-4">
+    <div className="mx-auto max-w-3xl px-4 py-4 pt-6">
+      <div className="">
         <form
           className="flex w-full flex-col gap-4"
           onSubmit={handleSubmit(onSubmit)}

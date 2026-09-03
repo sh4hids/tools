@@ -1,42 +1,42 @@
-import React, { useState } from "react";
-import { Button } from "./ui/button";
-import { Input } from "@/components/ui/input";
+import React, { useState } from 'react';
+import { Button } from './ui/button';
+import { Input } from '@/components/ui/input';
 
 const priceList = {
   step0: {
-    range: "0-50",
+    range: '0-50',
     limit: 50,
-    price: 4.63,
+    price: 5.32,
   },
   step1: {
-    range: "0-75",
+    range: '0-75',
     limit: 75,
-    price: 5.26,
+    price: 6.18,
   },
   step2: {
-    range: "76-200",
+    range: '76-200',
     limit: 125,
-    price: 7.2,
+    price: 8.5,
   },
   step3: {
-    range: "201-300",
+    range: '201-300',
     limit: 100,
-    price: 7.59,
+    price: 9.1,
   },
   step4: {
-    range: "301-400",
+    range: '301-400',
     limit: 100,
-    price: 8.02,
+    price: 9.62,
   },
   step5: {
-    range: "401-600",
+    range: '401-600',
     limit: 200,
-    price: 12.67,
+    price: 15.01,
   },
   step6: {
-    range: "600 >",
+    range: '600 >',
     limit: Number.MAX_SAFE_INTEGER,
-    price: 14.61,
+    price: 17.35,
   },
 };
 
@@ -44,17 +44,17 @@ type PriceTable = { [key: string]: { unit: number; price: number } };
 
 function getPriceTable(unit: number) {
   let totalUnit = unit;
-  let table: PriceTable = {};
+  const table: PriceTable = {};
 
   for (const [key, value] of Object.entries(priceList)) {
-    if (key === "step0" && totalUnit <= value.limit) {
+    if (key === 'step0' && totalUnit <= value.limit) {
       table[value.range] = {
         unit: totalUnit,
         price: +(totalUnit * value.price).toFixed(2),
       };
 
       return table;
-    } else if (key !== "step0" && totalUnit > 0) {
+    } else if (key !== 'step0' && totalUnit > 0) {
       table[value.range] = {
         unit: totalUnit > value.limit ? value.limit : totalUnit,
         price: +(
@@ -87,20 +87,20 @@ export default function ElectricityBillCalculator() {
 
   return (
     <>
-      <div className="max-w-3xl mx-auto">
-        <div className="mt-10">
+      <div className="mx-auto max-w-3xl px-4 py-4 pt-6">
+        <div className="">
           <h1 className="pb-4">Electricity Bill Calculator</h1>
-          <form className="flex flex-col gap-4 mb-4" onSubmit={handleSubmit}>
+          <form className="mb-4 flex flex-col gap-4" onSubmit={handleSubmit}>
             <Input
               name="unit2"
-              value={unit2 ?? ""}
+              value={unit2 ?? ''}
               type="number"
               placeholder="Current unit..."
               onChange={(e) => setUnit2(+e.target.value)}
             />
             <Input
               name="unit1"
-              value={unit1 ?? ""}
+              value={unit1 ?? ''}
               type="number"
               placeholder="Previous unit..."
               onChange={(e) => setUnit1(+e.target.value)}
@@ -110,7 +110,7 @@ export default function ElectricityBillCalculator() {
           <div className="price">
             {Object.keys(priceTable).length > 0 ? (
               <>
-                <table className="w-full border *:border ">
+                <table className="w-full border *:border">
                   <thead>
                     <tr className="*:border *:p-2">
                       <th>Range</th>
