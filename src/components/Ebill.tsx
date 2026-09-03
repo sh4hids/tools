@@ -6,37 +6,37 @@ const priceList = {
   step0: {
     range: '0-50',
     limit: 50,
-    price: 4.63,
+    price: 5.32,
   },
   step1: {
     range: '0-75',
     limit: 75,
-    price: 5.26,
+    price: 6.18,
   },
   step2: {
     range: '76-200',
     limit: 125,
-    price: 7.2,
+    price: 8.5,
   },
   step3: {
     range: '201-300',
     limit: 100,
-    price: 7.59,
+    price: 9.1,
   },
   step4: {
     range: '301-400',
     limit: 100,
-    price: 8.02,
+    price: 9.62,
   },
   step5: {
     range: '401-600',
     limit: 200,
-    price: 12.67,
+    price: 15.01,
   },
   step6: {
     range: '600 >',
     limit: Number.MAX_SAFE_INTEGER,
-    price: 14.61,
+    price: 17.35,
   },
 };
 
